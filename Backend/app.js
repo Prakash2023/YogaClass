@@ -16,10 +16,10 @@ const bcrypt=require("bcryptjs");
 const { reset } = require("nodemon");
   app.use(cors());
 const mongourl="mongodb+srv://Kingley23:Prakash123@cluster0.kd9lupf.mongodb.net/?retryWrites=true&w=majority"
-const corsOptions = {
+// const corsOptions = {
  
-   origin:['https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/'] 
-}
+//    origin:['https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/'] 
+// }
 mongoose.connect(mongourl,{
     useNewurlParser:true
 }).then(()=>{console.log("connected to database");
@@ -74,7 +74,7 @@ app.post("/login-user", async (req, res) => {
   
     const user = await User.findOne({ email });
     if (!user) {
-      return res.json({ error: "User Not found" });
+      return res.send({error:"User Not found"});
     }
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign({ email: user.email }, JWT_SECRET);
@@ -85,7 +85,7 @@ app.post("/login-user", async (req, res) => {
         return res.json({ error: "error" });
       }
     }
-    res.json({ status: "error", error: "InvAlid Password" });
+    return res.send({status:"error"});
   });
 
   app.post("/userData", async (req, res) => {

@@ -14,7 +14,7 @@ export default class Login extends Component {
     e.preventDefault();
     const { email, password } = this.state;
     console.log(email, password);
-    fetch("https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/login-user", {
+    fetch("http://localhost:5000/login-user", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -29,12 +29,27 @@ export default class Login extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "userRegister");
-        if (data.status === "ok") {
+        // console.log("toppoprakash123@gmail.com");
+         console.log(data, "userRegister");
+        
+        if (data.status === "ok") 
+        {
           alert("login successful");
           window.localStorage.setItem("token", data.data);
           window.location.href="./userDetails";
         }
+        
+        if(data.error==="User Not found"){
+       
+          alert("User Not found");
+          window.location.reload();
+        }
+        if(data.status==="error")
+        {
+          alert("Wrong Password");
+          window.location.reload(); 
+        }
+        
       });
   }
   render() {

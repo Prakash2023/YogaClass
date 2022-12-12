@@ -13,7 +13,7 @@ export default class UserDetails extends Component {
   }
    
   componentDidMount() {
-    fetch("https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/userData", {
+    fetch("http://localhost:5000/userData", {
       method: "POST",
       crossDomain: true,
       headers: {
