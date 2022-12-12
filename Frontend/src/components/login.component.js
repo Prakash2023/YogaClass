@@ -14,7 +14,7 @@ export default class Login extends Component {
     e.preventDefault();
     const { email, password } = this.state;
     console.log(email, password);
-    fetch("http://localhost:5000/login-user", {
+    fetch("https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/login-user", {
       method: "POST",
       crossDomain: true,
       headers: {

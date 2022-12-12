@@ -11,7 +11,7 @@ export default class ChangeBatch extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
       componentDidMount() {
-        fetch("http://localhost:5000/userData", {
+        fetch("https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/userData", {
           method: "POST",
           crossDomain: true,
           headers: {
@@ -37,7 +37,7 @@ export default class ChangeBatch extends Component {
         e.preventDefault();
         const { batch} = this.state;
         console.log(batch);
-        fetch("http://localhost:5000/updatebatch", {
+        fetch("https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/updatebatch", {
           method: "POST",
           crossDomain: true,
           headers: {
