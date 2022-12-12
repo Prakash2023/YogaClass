@@ -6,6 +6,7 @@ const mongoose=require("mongoose");
 const jwt = require("jsonwebtoken");
 // var nodemailer = require("nodemailer");
 
+
 const JWT_SECRET =
   "hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe";
 
@@ -15,6 +16,10 @@ const bcrypt=require("bcryptjs");
 const { reset } = require("nodemon");
   app.use(cors());
 const mongourl="mongodb+srv://Kingley23:Prakash123@cluster0.kd9lupf.mongodb.net/?retryWrites=true&w=majority"
+const corsOptions = {
+ 
+   origin:['https://63975a64fff1ec1045653116--cheerful-pixie-1ab34e.netlify.app/'] 
+}
 mongoose.connect(mongourl,{
     useNewurlParser:true
 }).then(()=>{console.log("connected to database");
